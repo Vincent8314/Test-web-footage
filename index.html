@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Learn JavaScript wihth Mosh</title>
+</head>
+<body>
+
+<!-- Buttons for each video -->
+<button data-video-id="https://www.youtube.com/watch?v=C6CB5AgnPqk">Play Video 1</button>
+<button data-video-id="9bZkp7q19f0">Play Video 2</button>
+<button data-video-id="3JZ_D3ELwOQ">Play Video 3</button>
+
+<!-- Container for video player -->
+<div id="video-container"></div>
+
+<script>
+  // Listen to every button
+  document.querySelectorAll('button[data-video-id]').forEach(button => {
+    button.addEventListener('click', () => {
+      const id = button.getAttribute('data-video-id');
+      const container = document.getElementById('video-container');
+      container.innerHTML = `
+        <iframe 
+          width="560" height="315"
+          src="https://www.youtube.com/embed/${id}"
+          frameborder="0"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      `;
+    });
+  });
+</script>
+
+</body>
+</html>
